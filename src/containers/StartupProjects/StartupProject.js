@@ -5,6 +5,7 @@ import { Fade } from "react-reveal";
 import StyleContext from "../../contexts/StyleContext";
 
 export default function StartupProject() {
+
   function openProjectInNewWindow(url) {
     var win = window.open(url, "_blank");
     win.focus();
@@ -36,7 +37,7 @@ export default function StartupProject() {
                     className="saaya-health-div"
                     onClick={() => openProjectInNewWindow(project.link)}
                   >
-                    <img alt="Saad Working" src={project.image}></img>
+                    <img alt="Zain Working" style={{width: 250, height: 250}} src={project.image}></img>
                   </div>
                 );
               })}

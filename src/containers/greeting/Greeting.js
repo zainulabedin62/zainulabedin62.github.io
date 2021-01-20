@@ -6,11 +6,24 @@ import landingPerson from '../../assets/lottie/landingPerson';
 import DisplayLottie from '../../components/displayLottie/DisplayLottie';
 import SocialMedia from '../../components/socialMedia/SocialMedia';
 import Button from '../../components/button/Button';
+import Avatar from 'react-avatar';
 
 import { illustration, greeting } from '../../portfolio';
 import StyleContext from '../../contexts/StyleContext';
 
 export default function Greeting() {
+const width = window.innerWidth
+const height = window.innerHeight
+//Guideline sizes are based on standard "iPhoneSE" mobile device
+const guidelineBaseWidth = 320;
+const guidelineBaseHeight = 568;
+const screenWidth = width;
+const screenHeight = height;
+const scale = size => width / guidelineBaseWidth * size;
+const verticalScale = size => height / guidelineBaseHeight * size;
+const moderateScale = (size, factor = 0.5) => size + (scale(size) - size) * factor;
+
+
   const { isDark } = useContext(StyleContext);
   if (!greeting.displayGreeting) {
     return null;
@@ -48,15 +61,18 @@ export default function Greeting() {
               </div>
             </div>
           </div>
-          <div className="greeting-image-div">
-            {illustration.animated ? (
+          <div className="greeting-image-div" style={{alignItems: 'center', justifyContent: 'center'}}>
+            {/* {illustration.animated ? (
               <DisplayLottie animationData={landingPerson} />
             ) : (
+             */}
               <img
-                alt="man sitting on table"
-                src={require('../../assets/images/manOnTable.svg')}
+                alt="Greeting Image"
+                src={require('../../assets/images/profileImage.jpg')}
+                
               ></img>
-            )}
+            {/* // )
+            // } */}
           </div>
         </div>
       </div>
